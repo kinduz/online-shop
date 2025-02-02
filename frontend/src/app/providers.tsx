@@ -2,6 +2,7 @@
 
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { type FC, type PropsWithChildren } from 'react'
+import { Toaster } from 'react-hot-toast'
 
 export const Providers: FC<PropsWithChildren> = ({ children }) => {
 	const client = new QueryClient({
@@ -12,5 +13,10 @@ export const Providers: FC<PropsWithChildren> = ({ children }) => {
 		}
 	})
 
-	return <QueryClientProvider client={client}>{children}</QueryClientProvider>
+	return (
+		<QueryClientProvider client={client}>
+			<Toaster />
+			{children}
+		</QueryClientProvider>
+	)
 }

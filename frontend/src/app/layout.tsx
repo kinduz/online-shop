@@ -2,6 +2,8 @@ import { GeistSans } from 'geist/font/sans'
 import { Metadata } from 'next'
 import React from 'react'
 
+import { Providers } from '@/app/providers'
+
 import { APP_NAME } from '@/constants/seo.constants'
 
 import './globals.scss'
@@ -20,7 +22,9 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang='en'>
-			<body className={GeistSans.variable}>{children}</body>
+			<body className={GeistSans.variable}>
+				<Providers>{children}</Providers>
+			</body>
 		</html>
 	)
 }
